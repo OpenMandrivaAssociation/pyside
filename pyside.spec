@@ -294,7 +294,9 @@ PySide devel files.
 %patch0 -p0 -b .orig
 
 %build
-%cmake -DQT_SRC_DIR=%buildroot/%qt4dir
+%cmake \
+	-DQT_SRC_DIR=%buildroot/%qt4dir \
+	-DQT_PHONON_INCLUDE_DIR=%+includedir
 %make
 
 %install
