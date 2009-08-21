@@ -10,6 +10,7 @@ Patch0: pyside-0.1.4.5-libdir.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
+BuildRequires: phonon-devel
 BuildRequires: boost-devel
 BuildRequires: apiextractor-devel >= 0.2
 BuildRequires: openssl-devel
