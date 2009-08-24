@@ -296,7 +296,7 @@ PySide devel files.
 %build
 %cmake \
 	-DQT_SRC_DIR=%buildroot/%qt4dir \
-	-DQT_PHONON_INCLUDE_DIR=%+includedir/phonon
+	-DQT_PHONON_INCLUDE_DIR=%_includedir/phonon
 %make
 
 %install
