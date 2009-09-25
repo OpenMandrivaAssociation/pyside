@@ -1,20 +1,21 @@
+%define qtver 4.5
+
 Name: pyside
-Version: 0.1.4.5
+Version: 0.2
 Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
 URL: http://www.pyside.org
-Source0:  %name-%version.tar.bz2
-Patch0: pyside-0.1.4.5-libdir.patch
+Source0:  %name-qt%{qtver}+%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
 BuildRequires: boost-devel
-BuildRequires: apiextractor-devel >= 0.2
 BuildRequires: openssl-devel
-BuildRequires: boostpythongenerator
+BuildRequires: apiextractor-devel >= 0.3
+BuildRequires: boostpythongenerator-devel >= 0.3
 BuildRequires: graphviz
 %py_requires -d
 Requires: pyside-phonon
@@ -290,14 +291,13 @@ PySide devel files.
 
 
 %prep
-%setup -q
-%patch0 -p0 -b .orig
+%setup -q -n %name-qt%{qtver}+%{version}
 
 %build
 %cmake \
 	-DQT_SRC_DIR=%buildroot/%qt4dir \
 	-DQT_PHONON_INCLUDE_DIR=%_includedir/phonon
-%make
+%make VERBOSE=1
 
 %install
 rm -rf %{buildroot}
