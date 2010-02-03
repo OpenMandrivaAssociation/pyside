@@ -16,6 +16,7 @@ BuildRequires: phonon-devel
 BuildRequires: boost-devel
 BuildRequires: openssl-devel
 BuildRequires: generatorrunner
+BuildRequires: boostpythongenerator
 BuildRequires: graphviz
 %py_requires -d
 Requires: pyside-phonon
