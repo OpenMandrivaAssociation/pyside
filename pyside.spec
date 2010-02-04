@@ -117,7 +117,7 @@ PySide multimedia module.
 
 %files multimedia
 %defattr(-,root,root,-)
-%py_platsitedir/PySide/Qtmultimedia.so
+%py_platsitedir/PySide/QtMultimedia.so
 %_datadir/PySide/typesystem/typesystem_multimedia*
 
 #------------------------------------------------------------------------------
