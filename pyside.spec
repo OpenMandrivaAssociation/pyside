@@ -23,6 +23,7 @@ Requires: pyside-phonon
 Requires: pyside-core
 Requires: pyside-gui
 Requires: pyside-help
+Requires: pyside-multimedia
 Requires: pyside-network
 Requires: pyside-opengl
 Requires: pyside-script
@@ -57,7 +58,7 @@ PySide phonon module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/phonon.so
 %_datadir/PySide/typesystem/typesystem_phonon.*
-
+%_datadir/PySide/typesystem/typesystem_maemo*
 #------------------------------------------------------------------------------
 
 %package core
@@ -71,7 +72,7 @@ PySide core module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtCore.so
 %py_platsitedir/PySide/__init__.py
-%_datadir/PySide/typesystem/typesystem_core.*
+%_datadir/PySide/typesystem/typesystem_core*
 %_datadir/PySide/typesystem/typesystem_templates.*
 
 #------------------------------------------------------------------------------
@@ -87,7 +88,7 @@ PySide gui module.
 %files gui
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtGui.so
-%_datadir/PySide/typesystem/typesystem_gui.*
+%_datadir/PySide/typesystem/typesystem_gui*
 
 #------------------------------------------------------------------------------
 
@@ -103,6 +104,21 @@ PySide help module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtHelp.so
 %_datadir/PySide/typesystem/typesystem_help.*
+
+#------------------------------------------------------------------------------
+
+%package multimedia
+Summary: PySide multimedia module
+Group: Development/KDE and Qt
+Requires: pyside-core = %{version}
+
+%description multimedia
+PySide multimedia module.
+
+%files multimedia
+%defattr(-,root,root,-)
+%py_platsitedir/PySide/Qtmultimedia.so
+%_datadir/PySide/typesystem/typesystem_multimedia*
 
 #------------------------------------------------------------------------------
 
@@ -132,7 +148,7 @@ PySide opengl module.
 %files opengl
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtOpenGL.so
-%_datadir/PySide/typesystem/typesystem_opengl.*
+%_datadir/PySide/typesystem/typesystem_opengl*
 
 #------------------------------------------------------------------------------
 
@@ -222,7 +238,7 @@ PySide webkit module.
 %files webkit
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtWebKit.so
-%_datadir/PySide/typesystem/typesystem_webkit.*
+%_datadir/PySide/typesystem/typesystem_webkit*
 
 #------------------------------------------------------------------------------
 
@@ -237,7 +253,7 @@ PySide xmlpatterns module.
 %files xmlpatterns
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtXmlPatterns.so
-%_datadir/PySide/typesystem/typesystem_xmlpatterns.*
+%_datadir/PySide/typesystem/typesystem_xmlpatterns*
 
 #------------------------------------------------------------------------------
 
