@@ -1,26 +1,23 @@
 %define qtver 4.6
 
 Name: pyside
-Version: 0.2.3
-Release: %mkrel 3
+Version: 0.4.0
+Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
 URL: http://www.pyside.org
 Source0:  http://www.pyside.org/files/%name-qt%{qtver}+%{version}.tar.bz2
-Patch0: pyside-qt4.5+0.2-cmake-install-module.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
-BuildRequires: boost-devel
-BuildRequires: openssl-devel
-BuildRequires: generatorrunner
-BuildRequires: boostpythongenerator
-BuildRequires: graphviz
+BuildRequires: generatorrunner >= 0.6.0
+BuildRequires: shiboken-devel >= 0.4.0
 %py_requires -d
 Requires: pyside-phonon
 Requires: pyside-core
+Requires: pyside-declarative
 Requires: pyside-gui
 Requires: pyside-help
 Requires: pyside-multimedia
@@ -29,6 +26,7 @@ Requires: pyside-opengl
 Requires: pyside-script
 Requires: pyside-scripttools
 Requires: pyside-sql
+Requires: pyside-test
 Requires: pyside-xmlpatterns
 Requires: pyside-xml
 Requires: pyside-uitools
@@ -42,7 +40,6 @@ open source and proprietary software development and ultimately aim to support
 all of the platforms as Qt itself.
 
 %files
-%doc README
 
 #------------------------------------------------------------------------------
 
@@ -57,8 +54,7 @@ PySide phonon module.
 %files phonon
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/phonon.so
-%_datadir/PySide/typesystem/typesystem_phonon.*
-%_datadir/PySide/typesystem/typesystem_maemo*
+%_datadir/PySide/typesystems/typesystem_phonon.*
 #------------------------------------------------------------------------------
 
 %package core
@@ -72,8 +68,23 @@ PySide core module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtCore.so
 %py_platsitedir/PySide/__init__.py
-%_datadir/PySide/typesystem/typesystem_core*
-%_datadir/PySide/typesystem/typesystem_templates.*
+%_datadir/PySide/typesystems/typesystem_core*
+%_datadir/PySide/typesystems/typesystem_templates.*
+
+#------------------------------------------------------------------------------
+
+%package declarative
+Summary: PySide declarative module
+Group: Development/KDE and Qt
+Requires: pyside-core = %{version}
+
+%description declarative
+PySide declarative module.
+
+%files declarative
+%defattr(-,root,root,-)
+%py_platsitedir/PySide/QtDeclarative.so
+%_datadir/PySide/typesystems/typesystem_declarative.*
 
 #------------------------------------------------------------------------------
 
@@ -88,7 +99,7 @@ PySide gui module.
 %files gui
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtGui.so
-%_datadir/PySide/typesystem/typesystem_gui*
+%_datadir/PySide/typesystems/typesystem_gui*
 
 #------------------------------------------------------------------------------
 
@@ -103,7 +114,7 @@ PySide help module.
 %files help
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtHelp.so
-%_datadir/PySide/typesystem/typesystem_help.*
+%_datadir/PySide/typesystems/typesystem_help.*
 
 #------------------------------------------------------------------------------
 
@@ -118,7 +129,7 @@ PySide multimedia module.
 %files multimedia
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtMultimedia.so
-%_datadir/PySide/typesystem/typesystem_multimedia*
+%_datadir/PySide/typesystems/typesystem_multimedia*
 
 #------------------------------------------------------------------------------
 
@@ -133,7 +144,7 @@ PySide network module.
 %files network
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtNetwork.so
-%_datadir/PySide/typesystem/typesystem_network.*
+%_datadir/PySide/typesystems/typesystem_network.*
 
 #------------------------------------------------------------------------------
 
@@ -148,7 +159,7 @@ PySide opengl module.
 %files opengl
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtOpenGL.so
-%_datadir/PySide/typesystem/typesystem_opengl*
+%_datadir/PySide/typesystems/typesystem_opengl*
 
 #------------------------------------------------------------------------------
 
@@ -163,7 +174,7 @@ PySide script module.
 %files script
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtScript.so
-%_datadir/PySide/typesystem/typesystem_script.*
+%_datadir/PySide/typesystems/typesystem_script.*
 
 #------------------------------------------------------------------------------
 
@@ -178,7 +189,7 @@ PySide scripttool module.
 %files scripttools
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtScriptTools.so
-%_datadir/PySide/typesystem/typesystem_scripttools.*
+%_datadir/PySide/typesystems/typesystem_scripttools.*
 
 #------------------------------------------------------------------------------
 
@@ -193,7 +204,7 @@ PySide sql module.
 %files sql
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtSql.so
-%_datadir/PySide/typesystem/typesystem_sql.*
+%_datadir/PySide/typesystems/typesystem_sql.*
 
 #------------------------------------------------------------------------------
 
@@ -208,7 +219,22 @@ PySide svg module.
 %files svg
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtSvg.so
-%_datadir/PySide/typesystem/typesystem_svg.*
+%_datadir/PySide/typesystems/typesystem_svg.*
+
+#------------------------------------------------------------------------------
+
+%package test
+Summary: PySide test module
+Group: Development/KDE and Qt
+Requires: pyside-core = %{version}
+
+%description test
+PySide test module.
+
+%files test
+%defattr(-,root,root,-)
+%py_platsitedir/PySide/QtTest.so
+%_datadir/PySide/typesystems/typesystem_test.*
 
 #------------------------------------------------------------------------------
 
@@ -223,7 +249,7 @@ PySide uitools module.
 %files uitools
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtUiTools.so
-%_datadir/PySide/typesystem/typesystem_uitools.*
+%_datadir/PySide/typesystems/typesystem_uitools.*
 
 #------------------------------------------------------------------------------
 
@@ -238,7 +264,7 @@ PySide webkit module.
 %files webkit
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtWebKit.so
-%_datadir/PySide/typesystem/typesystem_webkit*
+%_datadir/PySide/typesystems/typesystem_webkit*
 
 #------------------------------------------------------------------------------
 
@@ -253,7 +279,7 @@ PySide xmlpatterns module.
 %files xmlpatterns
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtXmlPatterns.so
-%_datadir/PySide/typesystem/typesystem_xmlpatterns*
+%_datadir/PySide/typesystems/typesystem_xmlpatterns*
 
 #------------------------------------------------------------------------------
 
@@ -268,23 +294,24 @@ PySide xml module.
 %files xml
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtXml.so
-%_datadir/PySide/typesystem/typesystem_xml.*
+%_datadir/PySide/typesystems/typesystem_xml.*
 
 #------------------------------------------------------------------------------
 
 %define major 0
-%define libname %mklibname pysidebase %{major}
+%define libname %mklibname pyside %{major}
 
 %package -n %{libname}
 Summary: PySide core library
 Group: Development/KDE and Qt
+Obsoletes: %{_lib}pysidebase < 0.4.0
 
 %description -n %{libname}
 PySide core library.
 
 %files -n %{libname}
 %defattr(-,root,root,-)
-%{_libdir}/libpysidebase.so.*
+%{_libdir}/libpyside.so.%{major}*
 
 #------------------------------------------------------------------------------
 
@@ -302,16 +329,15 @@ PySide devel files.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
-%{_datadir}/cmake/Modules/*
+%{_libdir}/cmake/*
 
 #------------------------------------------------------------------------------
 
-
 %prep
 %setup -q -n %name-qt%{qtver}+%{version}
-%patch0 -p0 -b .orig
 
 %build
+%define Werror_cflags %nil
 %cmake \
 	-DQT_SRC_DIR=%buildroot/%qt4dir \
 	-DQT_PHONON_INCLUDE_DIR=%_includedir/phonon
