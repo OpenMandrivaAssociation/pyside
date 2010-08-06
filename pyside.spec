@@ -2,7 +2,7 @@
 
 Name: pyside
 Version: 0.4.0
-Release: %mkrel 1
+Release: %mkrel 2
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
@@ -304,7 +304,7 @@ PySide xml module.
 %package -n %{libname}
 Summary: PySide core library
 Group: Development/KDE and Qt
-Obsoletes: %{_lib}pysidebase < 0.4.0
+Obsoletes: %{_lib}pysidebase0 < 0.4.0
 
 %description -n %{libname}
 PySide core library.
