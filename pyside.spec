@@ -1,8 +1,8 @@
 %define qtver 4.6
 
 Name: pyside
-Version: 0.4.0
-Release: %mkrel 2
+Version: 0.4.1
+Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
@@ -13,7 +13,7 @@ BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
 BuildRequires: generatorrunner >= 0.6.0
-BuildRequires: shiboken-devel >= 0.4.0
+BuildRequires: shiboken-devel >= 0.5.0
 %py_requires -d
 Requires: pyside-phonon
 Requires: pyside-core
