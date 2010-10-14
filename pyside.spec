@@ -1,7 +1,7 @@
 %define qtver 4.6
 
 Name: pyside
-Version: 0.4.1
+Version: 0.4.2
 Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
