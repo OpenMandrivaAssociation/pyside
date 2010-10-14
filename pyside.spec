@@ -13,7 +13,7 @@ BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
 BuildRequires: generatorrunner-devel >= 0.6.0
-BuildRequires: shiboken-devel >= 0.5.0
+BuildRequires: shiboken-devel >= 0.5.1
 %py_requires -d
 Requires: pyside-phonon
 Requires: pyside-core
