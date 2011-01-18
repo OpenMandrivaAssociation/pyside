@@ -1,5 +1,5 @@
 %define qtver 4.7
-%define beta beta2
+%define beta beta3
 
 Name: pyside
 Version: 1.0.0
