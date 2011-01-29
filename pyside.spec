@@ -314,7 +314,7 @@ PySide core library.
 
 %files -n %{libname}
 %defattr(-,root,root,-)
-%{_libdir}/libpyside.so.%{major}*
+%{_libdir}/libpyside-python%{py_ver}.so.%{major}*
 
 #------------------------------------------------------------------------------
 
@@ -337,7 +337,7 @@ PySide devel files.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -q -n %name-qt%{qtver}+%{version}~%{beta}
+%setup -qn %name-qt%{qtver}+%{version}~%{beta}
 
 %build
 %define Werror_cflags %nil
