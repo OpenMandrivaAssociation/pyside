@@ -1,5 +1,5 @@
 %define qtver 4.7
-%define beta beta3
+%define beta beta4
 
 Name: pyside
 Version: 1.0.0
@@ -13,7 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
-BuildRequires: generatorrunner-devel >= 0.6.3
+BuildRequires: generatorrunner-devel >= 0.6.4
 BuildRequires: shiboken-devel >= 1.0.0
 Buildrequires: python-devel
 Requires: pyside-phonon
@@ -56,6 +56,7 @@ PySide phonon module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/phonon.so
 %_datadir/PySide/typesystems/typesystem_phonon.*
+
 #------------------------------------------------------------------------------
 
 %package core
