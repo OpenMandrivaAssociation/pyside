@@ -1,5 +1,5 @@
 %define qtver 4.7
-%define beta beta5
+%define beta rc1
 
 Name: pyside
 Version: 1.0.0
@@ -13,7 +13,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
-BuildRequires: generatorrunner-devel >= 0.6.5
+BuildRequires: generatorrunner-devel >= 0.6.6
 BuildRequires: shiboken-devel >= 1.0.0
 Buildrequires: python-devel
 Requires: pyside-phonon
