@@ -3,12 +3,12 @@
 
 Name: pyside
 Version: 1.0.0
-Release: %mkrel -c %beta 1
+Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
 URL: http://www.pyside.org
-Source0: http://www.pyside.org/files/%name-qt%{qtver}+%{version}~%{beta}.tar.bz2
+Source0: http://www.pyside.org/files/%name-qt%{qtver}+%{version}.tar.bz2
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
@@ -337,7 +337,7 @@ PySide devel files.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -qn %name-qt%{qtver}+%{version}~%{beta}
+%setup -qn %name-qt%{qtver}+%{version}
 
 %build
 %define Werror_cflags %nil
