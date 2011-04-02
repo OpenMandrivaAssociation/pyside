@@ -2,7 +2,7 @@
 %define beta rc1
 
 Name: pyside
-Version: 1.0.0
+Version: 1.0.1
 Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
