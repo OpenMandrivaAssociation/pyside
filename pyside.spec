@@ -1,8 +1,7 @@
 %define qtver 4.7
-%define beta rc1
 
 Name: pyside
-Version: 1.0.1
+Version: 1.0.2
 Release: %mkrel 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
@@ -13,8 +12,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
-BuildRequires: generatorrunner-devel >= 0.6.6
-BuildRequires: shiboken-devel >= 1.0.0
+BuildRequires: generatorrunner-devel >= 0.6.9
+BuildRequires: shiboken-devel >= 1.0.2
 Buildrequires: python-devel
 Requires: pyside-phonon
 Requires: pyside-core
