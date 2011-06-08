@@ -2,7 +2,7 @@
 
 Name: pyside
 Version: 1.0.3
-Release: %mkrel 1
+Release: 2
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
@@ -340,6 +340,7 @@ PySide devel files.
 
 %build
 %define Werror_cflags %nil
+sed 's/-Wno-strict-aliasing/-fno-strict-aliasing/' -i CMakeLists.txt
 %cmake \
 	-DQT_SRC_DIR=%buildroot/%qt4dir \
 	-DQT_PHONON_INCLUDE_DIR=%_includedir/phonon
