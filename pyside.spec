@@ -1,8 +1,9 @@
+%define qt47found %(pkg-config --atleast-version=4.7.0 QtCore && echo 1)
 %define qtver 4.7
 
 Name: pyside
 Version: 1.0.3
-Release: 2
+Release: %mkrel 3
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
@@ -17,7 +18,9 @@ BuildRequires: shiboken-devel >= %{version}
 Buildrequires: python-devel
 Requires: pyside-phonon
 Requires: pyside-core
+%if "%{qt47found}" == "1"
 Requires: pyside-declarative
+%endif
 Requires: pyside-gui
 Requires: pyside-help
 Requires: pyside-multimedia
@@ -75,6 +78,7 @@ PySide core module.
 
 #------------------------------------------------------------------------------
 
+%if "%{qt47found}" == "1"
 %package declarative
 Summary: PySide declarative module
 Group: Development/KDE and Qt
@@ -87,6 +91,7 @@ PySide declarative module.
 %defattr(-,root,root,-)
 %py_platsitedir/PySide/QtDeclarative.so
 %_datadir/PySide/typesystems/typesystem_declarative.*
+%endif
 
 #------------------------------------------------------------------------------
 
