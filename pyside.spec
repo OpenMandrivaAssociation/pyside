@@ -12,7 +12,7 @@ Source0: http://www.pyside.org/files/%name-qt%{qtver}+%{version}.tar.bz2
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
-BuildRequires: generatorrunner-devel >= 0.6.10
+BuildRequires: generatorrunner-devel >= 0.6.11
 BuildRequires: shiboken-devel >= %{version}
 Buildrequires: python-devel
 Requires: pyside-phonon
