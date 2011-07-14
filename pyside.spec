@@ -2,8 +2,8 @@
 %define qtver 4.7
 
 Name: pyside
-Version: 1.0.3
-Release: 3
+Version: 1.0.4
+Release: 1
 License: LGPLv2+
 Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
