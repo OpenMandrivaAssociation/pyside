@@ -9,6 +9,7 @@ Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
 Group: Development/KDE and Qt
 URL: http://www.pyside.org
 Source0: http://www.pyside.org/files/%name-qt%{qtver}+%{version}.tar.bz2
+Patch0: pyside-1.0.6-qt4.8.patch
 BuildRequires: cmake
 BuildRequires: qt4-devel
 BuildRequires: phonon-devel
@@ -322,6 +323,7 @@ PySide devel files.
 
 %prep
 %setup -qn %name-qt%{qtver}+%{version}
+%patch0 -p1 -b .qt48~
 
 %build
 %define Werror_cflags %nil
