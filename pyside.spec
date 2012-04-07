@@ -1,41 +1,37 @@
-%define qt47found %(pkg-config --atleast-version=4.7.0 QtCore && echo 1)
 %define qtver 4.7
 %define pyver python2.7
 
-Name: pyside
-Version: 1.0.8
-Release: 3
-License: LGPLv2+
-Summary: The PySide project provides LGPL-licensed Python bindings for the Qt
-Group: Development/KDE and Qt
-URL: http://www.pyside.org
-Source0: http://www.pyside.org/files/%{name}-qt%{qtver}+%{version}.tar.bz2
-Patch1: pyside-1.0.8-cmake.patch
-BuildRequires: cmake
-BuildRequires: qt4-devel
-BuildRequires: phonon-devel
-BuildRequires: generatorrunner-devel >= 0.6.14
-BuildRequires: shiboken-devel >= 1.0.8
-Buildrequires: python-devel
-Requires: pyside-phonon
-Requires: pyside-core
-%if "%{qt47found}" == "1"
-Requires: pyside-declarative
-%endif
-Requires: pyside-gui
-Requires: pyside-help
-Requires: pyside-multimedia
-Requires: pyside-network
-Requires: pyside-opengl
-Requires: pyside-script
-Requires: pyside-scripttools
-Requires: pyside-sql
-Requires: pyside-test
-Requires: pyside-xmlpatterns
-Requires: pyside-xml
-Requires: pyside-uitools
-Requires: pyside-svg
-Requires: pyside-webkit
+Name:		pyside
+Version:	1.1.0
+Release:	1
+License:	LGPLv2+
+Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
+Group:		Development/KDE and Qt
+URL:		http://www.pyside.org
+Source0:	http://www.pyside.org/files/%{name}-qt%{qtver}+%{version}.tar.bz2
+BuildRequires:	cmake
+BuildRequires:	qt4-devel
+BuildRequires:	phonon-devel
+BuildRequires:	generatorrunner-devel >= 0.6.16
+BuildRequires:	shiboken-devel >= 1.1.0
+Buildrequires:	python-devel
+Requires:	pyside-phonon
+Requires:	pyside-core
+Requires:	pyside-declarative
+Requires:	pyside-gui
+Requires:	pyside-help
+Requires:	pyside-multimedia
+Requires:	pyside-network
+Requires:	pyside-opengl
+Requires:	pyside-script
+Requires:	pyside-scripttools
+Requires:	pyside-sql
+Requires:	pyside-test
+Requires:	pyside-xmlpatterns
+Requires:	pyside-xml
+Requires:	pyside-uitools
+Requires:	pyside-svg
+Requires:	pyside-webkit
 
 %description
 The PySide project provides LGPL-licensed Python bindings for the Qt
@@ -48,9 +44,9 @@ all of the platforms as Qt itself.
 #------------------------------------------------------------------------------
 
 %package phonon
-Summary: PySide phonon module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide phonon module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description phonon
 PySide phonon module.
@@ -62,8 +58,8 @@ PySide phonon module.
 #------------------------------------------------------------------------------
 
 %package core
-Summary: PySide core module
-Group: Development/KDE and Qt
+Summary:	PySide core module
+Group:		Development/KDE and Qt
 
 %description core
 PySide core module.
@@ -77,11 +73,10 @@ PySide core module.
 
 #------------------------------------------------------------------------------
 
-%if "%{qt47found}" == "1"
 %package declarative
-Summary: PySide declarative module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide declarative module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description declarative
 PySide declarative module.
@@ -89,14 +84,13 @@ PySide declarative module.
 %files declarative
 %{py_platsitedir}/PySide/QtDeclarative.so
 %{_datadir}/PySide/typesystems/typesystem_declarative.*
-%endif
 
 #------------------------------------------------------------------------------
 
 %package gui
-Summary: PySide gui module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide gui module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description gui
 PySide gui module.
@@ -108,9 +102,9 @@ PySide gui module.
 #------------------------------------------------------------------------------
 
 %package help
-Summary: PySide help module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide help module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description help
 PySide help module.
@@ -122,9 +116,9 @@ PySide help module.
 #------------------------------------------------------------------------------
 
 %package multimedia
-Summary: PySide multimedia module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide multimedia module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description multimedia
 PySide multimedia module.
@@ -136,9 +130,9 @@ PySide multimedia module.
 #------------------------------------------------------------------------------
 
 %package network
-Summary: PySide network module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide network module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description network
 PySide network module.
@@ -150,9 +144,9 @@ PySide network module.
 #------------------------------------------------------------------------------
 
 %package opengl
-Summary: PySide opengl module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide opengl module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description opengl
 PySide opengl module.
@@ -164,9 +158,9 @@ PySide opengl module.
 #------------------------------------------------------------------------------
 
 %package script
-Summary: PySide script module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide script module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description script
 PySide script module.
@@ -178,9 +172,9 @@ PySide script module.
 #------------------------------------------------------------------------------
 
 %package scripttools
-Summary: PySide scripttool module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide scripttool module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description scripttools
 PySide scripttool module.
@@ -192,9 +186,9 @@ PySide scripttool module.
 #------------------------------------------------------------------------------
 
 %package sql
-Summary: PySide sql module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide sql module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description sql
 PySide sql module.
@@ -206,9 +200,9 @@ PySide sql module.
 #------------------------------------------------------------------------------
 
 %package svg
-Summary: PySide svg module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide svg module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description svg
 PySide svg module.
@@ -220,9 +214,9 @@ PySide svg module.
 #------------------------------------------------------------------------------
 
 %package test
-Summary: PySide test module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide test module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description test
 PySide test module.
@@ -234,9 +228,9 @@ PySide test module.
 #------------------------------------------------------------------------------
 
 %package uitools
-Summary: PySide uitools module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide uitools module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description uitools
 PySide uitools module.
@@ -248,9 +242,9 @@ PySide uitools module.
 #------------------------------------------------------------------------------
 
 %package webkit
-Summary: PySide webkit module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide webkit module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description webkit
 PySide webkit module.
@@ -262,9 +256,9 @@ PySide webkit module.
 #------------------------------------------------------------------------------
 
 %package xmlpatterns
-Summary: PySide xmlpatterns module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide xmlpatterns module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description xmlpatterns
 PySide xmlpatterns module.
@@ -276,9 +270,9 @@ PySide xmlpatterns module.
 #------------------------------------------------------------------------------
 
 %package xml
-Summary: PySide xml module
-Group: Development/KDE and Qt
-Requires: pyside-core = %{version}
+Summary:	PySide xml module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
 
 %description xml
 PySide xml module.
@@ -293,9 +287,9 @@ PySide xml module.
 %define libname %mklibname pyside %{major}
 
 %package -n %{libname}
-Summary: PySide core library
-Group: Development/KDE and Qt
-Obsoletes: %{_lib}pysidebase0 < 0.4.0
+Summary:	PySide core library
+Group:		Development/KDE and Qt
+Obsoletes:	%{_lib}pysidebase0 < 0.4.0
 
 %description -n %{libname}
 PySide core library.
@@ -306,10 +300,10 @@ PySide core library.
 #------------------------------------------------------------------------------
 
 %package devel
-Summary: PySide devel files
-Group: Development/KDE and Qt
-Requires: %{name} = %{version}
-Requires: %{libname} = %{version}
+Summary:	PySide devel files
+Group:		Development/KDE and Qt
+Requires:	%{name} = %{version}
+Requires:	%{libname} = %{version}
 
 %description devel
 PySide devel files.
@@ -324,11 +318,10 @@ PySide devel files.
 
 %prep
 %setup -qn %{name}-qt%{qtver}+%{version}
-%patch1 -p1 -b .cmake
 
 %build
 %define Werror_cflags %nil
-sed 's/-Wno-strict-aliasing/-fno-strict-aliasing/' -i CMakeLists.txt
+%__sed 's/-Wno-strict-aliasing/-fno-strict-aliasing/' -i CMakeLists.txt
 %cmake \
 	-DQT_SRC_DIR=%{buildroot}%{qt4dir} \
 	-DQT_PHONON_INCLUDE_DIR=%{_includedir}/phonon \
