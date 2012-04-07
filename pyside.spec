@@ -67,7 +67,6 @@ PySide core module.
 %files core
 %{py_platsitedir}/PySide/QtCore.so
 %{py_platsitedir}/PySide/__init__.py
-%{py_platsitedir}/PySide/private.py
 %{_datadir}/PySide/typesystems/typesystem_core*
 %{_datadir}/PySide/typesystems/typesystem_templates.*
 
