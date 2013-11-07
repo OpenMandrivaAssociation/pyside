@@ -1,20 +1,19 @@
 %define qtver 4.8
 %define pyver python2.7
 
+Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Name:		pyside
 Version:	1.1.2
-Release:	1
+Release:	2
 License:	LGPLv2+
-Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Group:		Development/KDE and Qt
-URL:		http://www.pyside.org
+Url:		http://www.pyside.org
 Source0:	http://www.pyside.org/files/%{name}-qt%{qtver}+%{version}.tar.bz2
-Source100:	pyside.rpmlintrc
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
-BuildRequires:	phonon-devel
-BuildRequires:	shiboken-devel >= 1.1.2
-Buildrequires:	python-devel
+BuildRequires:	pkgconfig(phonon)
+Buildrequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(shiboken)
 Requires:	pyside-phonon
 Requires:	pyside-core
 Requires:	pyside-declarative
@@ -283,12 +282,12 @@ PySide xml module.
 #------------------------------------------------------------------------------
 
 %define major 1
-%define libname %mklibname pyside %{major}
+%define libname %mklibname pyside-python %{pyver} %{major}
 
 %package -n %{libname}
 Summary:	PySide core library
 Group:		Development/KDE and Qt
-Obsoletes:	%{_lib}pysidebase0 < 0.4.0
+Obsoletes:	%{_lib}pyside1 < 1.1.2-2
 
 %description -n %{libname}
 PySide core library.
@@ -301,8 +300,8 @@ PySide core library.
 %package devel
 Summary:	PySide devel files
 Group:		Development/KDE and Qt
-Requires:	%{name} = %{version}
-Requires:	%{libname} = %{version}
+Requires:	%{name} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 
 %description devel
 PySide devel files.
