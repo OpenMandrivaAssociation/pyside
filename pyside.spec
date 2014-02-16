@@ -3,17 +3,18 @@
 
 Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Name:		pyside
-Version:	1.1.2
-Release:	6
+Version:	1.2.1
+Release:	1
 License:	LGPLv2+
 Group:		Development/KDE and Qt
 Url:		http://www.pyside.org
-Source0:	http://www.pyside.org/files/%{name}-qt%{qtver}+%{version}.tar.bz2
+Source0:	http://ftp.fau.de/qtproject/official_releases/pyside/pyside-qt4.8+%{version}.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(phonon)
 Buildrequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(shiboken)
+BuildRequires:	python-sphinx
 Requires:	pyside-phonon
 Requires:	pyside-core
 Requires:	pyside-declarative
@@ -66,6 +67,7 @@ PySide core module.
 %files core
 %{py_platsitedir}/PySide/QtCore.so
 %{py_platsitedir}/PySide/__init__.py
+%{py_platsitedir}/PySide/_utils.py
 %{_datadir}/PySide/typesystems/typesystem_core*
 %{_datadir}/PySide/typesystems/typesystem_templates.*
 
