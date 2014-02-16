@@ -11,6 +11,7 @@ Url:		http://www.pyside.org
 Source0:	http://ftp.fau.de/qtproject/official_releases/pyside/pyside-qt4.8+%{version}.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(QtWebKit)
 BuildRequires:	pkgconfig(phonon)
 Buildrequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(shiboken)
