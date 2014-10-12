@@ -1,10 +1,10 @@
 %define qtver 4.8
-%define pyver python2.7
+%define py3verflags %(python3 -c "import sysconfig; print(sysconfig.get_config_var('SOABI'))")
 
 Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Name:		pyside
-Version:	1.2.1
-Release:	3
+Version:	1.2.2
+Release:	1
 License:	LGPLv2+
 Group:		Development/KDE and Qt
 Url:		http://www.pyside.org
@@ -284,8 +284,8 @@ PySide xml module.
 
 #------------------------------------------------------------------------------
 
-%define major 1
-%define libname %mklibname pyside-python %{pyver} %{major}
+%define api 1.2
+%define libname %mklibname pyside.%{py3verflags} %{api}
 
 %package -n %{libname}
 Summary:	PySide core library
@@ -296,7 +296,7 @@ Obsoletes:	%{_lib}pyside1 < 1.1.2-2
 PySide core library.
 
 %files -n %{libname}
-%{_libdir}/libpyside-python%{py_ver}.so.%{major}*
+%{_libdir}/libpyside.%{py3verflags}.so.%{api}*
 
 #------------------------------------------------------------------------------
 
@@ -326,7 +326,8 @@ PySide devel files.
 %cmake \
 	-DQT_SRC_DIR=%{buildroot}%{qt4dir} \
 	-DQT_PHONON_INCLUDE_DIR=%{_includedir}/phonon \
-	-DPYTHON_BASENAME=%{pyver}
+	-DPYTHON_SUFFIX=.%{py3verflags} \
+	-DSHIBOKEN_PYTHON_INTERPRETER=%{__python3}
 %make
 
 %install
