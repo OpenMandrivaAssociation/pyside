@@ -1,10 +1,11 @@
 %define qtver 4.8
 %define py3verflags %(python3 -c "import sysconfig; print(sysconfig.get_config_var('SOABI'))")
+%define py2verflags -python2.7
 
 Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Name:		pyside
 Version:	1.2.2
-Release:	5
+Release:	6
 License:	LGPLv2+
 Group:		Development/KDE and Qt
 Url:		http://www.pyside.org
@@ -300,11 +301,272 @@ PySide core library.
 
 #------------------------------------------------------------------------------
 
-%package devel
-Summary:	PySide devel files
+%define api 1.2
+%define libname_py2 %mklibname pyside%{py2verflags} %{api}
+
+%package -n %{libname_py2}
+Summary:        PySide core library
+Group:          Development/KDE and Qt
+
+%description -n %{libname_py2}
+PySide core library.
+
+%files -n %{libname_py2}
+%{_libdir}/libpyside%{py2verflags}.so.%{api}*
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside
+Requires:       pyside-phonon
+Requires:       pyside-core
+Requires:       pyside-declarative
+Requires:       pyside-gui
+Requires:       pyside-help
+Requires:       pyside-multimedia
+Requires:       pyside-network
+Requires:       pyside-opengl
+Requires:       pyside-script
+Requires:       pyside-scripttools
+Requires:       pyside-sql
+Requires:       pyside-test
+Requires:       pyside-xmlpatterns
+Requires:       pyside-xml
+Requires:       pyside-uitools
+Requires:       pyside-svg
+Requires:       pyside-webkit
+
+%description -n python2-pyside
+Pyside for python2.
+
+%files -n python2-pyside
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-phonon
+Summary:	PySide phonon module
 Group:		Development/KDE and Qt
-Requires:	%{name} = %{version}-%{release}
-Requires:	%{libname} = %{version}-%{release}
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-phonon
+PySide phonon module.
+
+%files -n python2-pyside-phonon
+%{py2_platsitedir}/PySide/phonon.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-core
+Summary:	PySide core module
+Group:		Development/KDE and Qt
+
+%description -n python2-pyside-core
+PySide core module.
+
+%files -n python2-pyside-core
+%{py2_platsitedir}/PySide/QtCore.so
+%{py2_platsitedir}/PySide/__init__.py
+%{py2_platsitedir}/PySide/_utils.py
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-declarative
+Summary:	PySide declarative module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-declarative
+PySide declarative module.
+
+%files -n python2-pyside-declarative
+%{py2_platsitedir}/PySide/QtDeclarative.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-gui
+Summary:	PySide gui module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-gui
+PySide gui module.
+
+%files -n python2-pyside-gui
+%{py2_platsitedir}/PySide/QtGui.so
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-help
+Summary:	PySide help module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-help
+PySide help module.
+
+%files -n python2-pyside-help
+%{py2_platsitedir}/PySide/QtHelp.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-multimedia
+Summary:	PySide multimedia module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-multimedia
+PySide multimedia module.
+
+%files -n python2-pyside-multimedia
+%{py2_platsitedir}/PySide/QtMultimedia.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-network
+Summary:	PySide network module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-network
+PySide network module.
+
+%files -n python2-pyside-network
+%{py2_platsitedir}/PySide/QtNetwork.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-opengl
+Summary:	PySide opengl module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-opengl
+PySide opengl module.
+
+%files -n python2-pyside-opengl
+%{py2_platsitedir}/PySide/QtOpenGL.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-script
+Summary:	PySide script module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-script
+PySide script module.
+
+%files -n python2-pyside-script
+%{py2_platsitedir}/PySide/QtScript.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-scripttools
+Summary:	PySide scripttool module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-scripttools
+PySide scripttool module.
+
+%files -n python2-pyside-scripttools
+%{py2_platsitedir}/PySide/QtScriptTools.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-sql
+Summary:	PySide sql module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-sql
+PySide sql module.
+
+%files -n python2-pyside-sql
+%{py2_platsitedir}/PySide/QtSql.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-svg
+Summary:	PySide svg module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-svg
+PySide svg module.
+
+%files -n python2-pyside-svg
+%{py2_platsitedir}/PySide/QtSvg.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-test
+Summary:	PySide test module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-test
+PySide test module.
+
+%files -n python2-pyside-test
+%{py2_platsitedir}/PySide/QtTest.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-uitools
+Summary:	PySide uitools module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-uitools
+PySide uitools module.
+
+%files -n python2-pyside-uitools
+%{py2_platsitedir}/PySide/QtUiTools.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-webkit
+Summary:	PySide webkit module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-webkit
+PySide webkit module.
+
+%files -n python2-pyside-webkit
+%{py2_platsitedir}/PySide/QtWebKit.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-xmlpatterns
+Summary:	PySide xmlpatterns module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-xmlpatterns
+PySide xmlpatterns module.
+
+%files -n python2-pyside-xmlpatterns
+%{py2_platsitedir}/PySide/QtXmlPatterns.so
+
+#------------------------------------------------------------------------------
+
+%package -n python2-pyside-xml
+Summary:	PySide xml module
+Group:		Development/KDE and Qt
+Requires:	pyside-core = %{version}
+
+%description -n python2-pyside-xml
+PySide xml module.
+
+#------------------------------------------------------------------------------
+
+%package devel
+Summary:        PySide devel files
+Group:          Development/KDE and Qt
+Requires:       %{name} = %{version}-%{release}
+Requires:       python2-%{name} = %{version}-%{release}
+Requires:       %{libname} = %{version}-%{release}
+Requires:       %{libname_py2} = %{version}-%{release}
 
 %description devel
 PySide devel files.
@@ -317,13 +579,34 @@ PySide devel files.
 
 #------------------------------------------------------------------------------
 
+
+%files -n python2-pyside-xml
+%{py2_platsitedir}/PySide/QtXml.so
+
+#------------------------------------------------------------------------------
+
+
 %prep
 %setup -qn %{name}-qt%{qtver}+%{version}
 
-%build
-%define Werror_cflags %nil
 %__sed 's/-Wno-strict-aliasing/-fno-strict-aliasing/' -i CMakeLists.txt
+
+cp -a . %py2dir
+
+%build
+
+%define Werror_cflags %nil
+pushd %{py2dir}
 %cmake \
+	-DQT_QMAKE_EXECUTABLE=/usr/lib/qt4/bin/qmake \
+        -DQT_SRC_DIR=%{buildroot}%{qt4dir} \
+        -DQT_PHONON_INCLUDE_DIR=%{_includedir}/phonon \
+        -DPYTHON_EXECUTABLE=%{__python2} \
+	-DPYTHON_SUFFIX="-python2.7"
+%make
+popd
+%cmake \
+	-DQT_QMAKE_EXECUTABLE=/usr/lib/qt4/bin/qmake \
 	-DQT_SRC_DIR=%{buildroot}%{qt4dir} \
 	-DQT_PHONON_INCLUDE_DIR=%{_includedir}/phonon \
 	-DPYTHON_SUFFIX=.%{py3verflags} \
@@ -331,5 +614,9 @@ PySide devel files.
 %make
 
 %install
+pushd %{py2dir}
+%makeinstall_std -C build
+popd
+
 %makeinstall_std -C build
 
