@@ -17,6 +17,8 @@ BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(python2)
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(shiboken)
+BuildRequires:  python-setuptools 
+BuildRequires:  python2-setuptools
 BuildRequires:	python-sphinx
 Requires:	pyside-phonon
 Requires:	pyside-core
