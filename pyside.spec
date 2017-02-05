@@ -14,7 +14,8 @@ BuildRequires:	cmake
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(QtWebKit)
 BuildRequires:	pkgconfig(phonon)
-Buildrequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(shiboken)
 BuildRequires:	python-sphinx
 Requires:	pyside-phonon
