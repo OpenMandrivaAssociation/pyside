@@ -5,7 +5,7 @@
 Summary:	The PySide project provides LGPL-licensed Python bindings for the Qt
 Name:		pyside
 Version:	1.2.2
-Release:	6
+Release:	7
 License:	LGPLv2+
 Group:		Development/KDE and Qt
 Url:		http://www.pyside.org
@@ -320,23 +320,23 @@ PySide core library.
 #------------------------------------------------------------------------------
 
 %package -n python2-pyside
-Requires:       pyside-phonon
-Requires:       pyside-core
-Requires:       pyside-declarative
-Requires:       pyside-gui
-Requires:       pyside-help
-Requires:       pyside-multimedia
-Requires:       pyside-network
-Requires:       pyside-opengl
-Requires:       pyside-script
-Requires:       pyside-scripttools
-Requires:       pyside-sql
-Requires:       pyside-test
-Requires:       pyside-xmlpatterns
-Requires:       pyside-xml
-Requires:       pyside-uitools
-Requires:       pyside-svg
-Requires:       pyside-webkit
+Requires:       python2-pyside-phonon
+Requires:       python2-pyside-core
+Requires:       python2-pyside-declarative
+Requires:       python2-pyside-gui
+Requires:       python2-pyside-help
+Requires:       python2-pyside-multimedia
+Requires:       python2-pyside-network
+Requires:       python2-pyside-opengl
+Requires:       python2-pyside-script
+Requires:       python2-pyside-scripttools
+Requires:       python2-pyside-sql
+Requires:       python2-pyside-test
+Requires:       python2-pyside-xmlpatterns
+Requires:       python2-pyside-xml
+Requires:       python2-pyside-uitools
+Requires:       python2-pyside-svg
+Requires:       python2-pyside-webkit
 
 %description -n python2-pyside
 Pyside for python2.
