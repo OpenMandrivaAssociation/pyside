@@ -8,7 +8,7 @@ Version:	1.2.2
 Release:	8
 License:	LGPLv2+
 Group:		Development/KDE and Qt
-Url:		http://www.pyside.org
+Url:		https://www.pyside.org
 Source0:	http://ftp.fau.de/qtproject/official_releases/pyside/pyside-qt4.8+%{version}.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
